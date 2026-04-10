@@ -16,6 +16,7 @@
         margin: 0;
         padding: 0;
         cursor: url("./Images/226517703_776fccdd-8d12-4178-a849-632c1ee4535e.svg"), pointer;
+        overflow-x: hidden;
     }
 
     h1 {
@@ -188,28 +189,37 @@
     }
 
 
-    .chigger-5 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        text-align: center;
-        background-color: #c5e1a5;
-        color: black;
-        width: 100%;
-        height: 100%;
-    }
+   .chigger-5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #c5e1a5;
+    color: black;
+    width: 100%;
+    height: 100%;
+    padding: 0; /* Ensures the button can fill the space entirely */
+    overflow: hidden;
+}
 
-    .chigger-5 a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        cursor: url("./Images/226517703_776fccdd-8d12-4178-a849-632c1ee4535e.svg") 16 16, auto;
-        text-decoration: none;
-        color: inherit;
-    }
+.chigger-5 button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    cursor: url("./Images/226517703_776fccdd-8d12-4178-a849-632c1ee4535e.svg") 16 16, auto;
+    text-decoration: none;
+    color: inherit;
+    
+    /* Reset default button styles to match your original link look */
+    background: none;
+    border: none;
+    font-family: inherit; /* Keeps your "SC" or default font */
+    font-size: inherit;   /* Matches the 2rem from parent */
+    padding: 0;
+}
 
     .chigger-5 p {
         margin: 0;
