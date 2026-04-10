@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter's Card!</title>
+    <style>
+        @font-face {
+            font-family: PH ;
+            src: url("../Fonts/Pokemon\ Hollow.ttf");
+        }
+        @font-face {
+            font-family: PS;
+            src: url("../Fonts/Pokemon\ Solid.ttf");
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, #f0f0f0 0%, #c0c0c0 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.2rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.8s ease;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: PH;
+        }
+
+        #stage {
+            position: relative;
+            width: 320px;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #poke-container {
+            display: none; 
+            opacity: 0;
+            padding: 15px;
+            background: white;
+            border: 8px solid #000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #pokemon-img {
+            max-width: 250px;
+            max-height: 250px;
+        }
+
+        #poke-nameplate {
+            display: none;
+            opacity: 0;
+            background: #000;
+            color: #fff;
+            padding: 10px 40px;
+            font-family: PS;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border: 2px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        #ball {
+            width: 90px;
+            cursor: pointer;
+            z-index: 20;
+            position: absolute;
+            top: 10%; 
+            left: 50%;
+            transform: translateX(-50%);
+            animation: floatHint 3s infinite ease-in-out;
+        }
+
+        @keyframes floatHint {
+            0%, 100% { transform: translate(-50%, 0) scale(1); }
+            50% { transform: translate(-50%, 20px) scale(1.05); }
+        }
+
+        @keyframes dropToFloor {
+            0% { top: 10%; transform: translateX(-50%); }
+            100% { top: 50%; transform: translateX(-50%); }
+        }
+
+        @keyframes catchShake {
+            0% { top: 50%; transform: translateX(-50%) rotate(0deg); }
+            20% { top: 50%; transform: translateX(-50%) rotate(-20deg); }
+            40% { top: 50%; transform: translateX(-50%) rotate(20deg); }
+            60% { top: 50%; transform: translateX(-50%) rotate(-20deg); }
+            80% { top: 50%; transform: translateX(-50%) rotate(20deg); }
+            100% { top: 50%; transform: translateX(-50%) rotate(0deg); }
+        }
+
+        @keyframes burst {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .falling { animation: dropToFloor 0.5s forwards ease-in !important; }
+        .shaking { animation: catchShake 0.3s infinite !important; }
+        .reveal-theme { display: flex !important; animation: burst 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .show-ui { opacity: 1 !important; transform: translateY(0) !important; }
+
+    </style>
+</head>
+<body>
+
+    <h1 id="heading">Happy Birthday Sir Olivar!</h1>
+
+    <div id="stage">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" id="ball" alt="Pokeball">
+        
+        <div id="poke-container">
+            <img src="../Pokemons/dragonite.avif" id="pokemon-img">
+        </div>
+
+        <div id="poke-nameplate">
+            <span id="name-text"></span>
+        </div>
+    </div>
+
+    <script>
+        const ball = document.getElementById('ball');
+        const container = document.getElementById('poke-container');
+        const pokemon = document.getElementById('pokemon-img');
+        const heading = document.getElementById('heading');
+        const nameplate = document.getElementById('poke-nameplate');
+        const nameDisplay = document.getElementById('name-text');
+
+        function updateName() {
+            const fullPath = pokemon.getAttribute('src'); 
+            const fileName = fullPath.split('/').pop();
+            const nameOnly = fileName.split('.')[0];
+            nameDisplay.innerText = nameOnly.replace(/-/g, ' ').replace(/_/g, ' ');
+        }
+
+        ball.addEventListener('click', () => {
+            updateName(); 
+            
+            ball.style.animation = "none"; 
+            void ball.offsetWidth; 
+            ball.classList.add('falling');
+
+            setTimeout(() => {
+                ball.classList.remove('falling');
+                ball.classList.add('shaking');
+            }, 500);
+
+            setTimeout(() => {
+                ball.style.display = 'none'; 
+                container.classList.add('reveal-theme');
+                nameplate.classList.add('reveal-theme');
+                heading.classList.add('show-ui');
+                
+                document.body.style.backgroundColor = "#fff";
+                setTimeout(() => {
+                    document.body.style.background = "radial-gradient(circle, #f0f0f0 0%, #c0c0c0 100%)";
+                }, 100);
+
+            }, 2300); 
+        });
+    </script>
+</body>
+</html>
