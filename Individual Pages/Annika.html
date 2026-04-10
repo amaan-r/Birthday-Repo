@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annika's Card</title>
+    <style>
+        @font-face {
+            font-family: CR;
+            src: url(../Fonts/Cattie-Regular.ttf);
+        }
+
+        body {
+            background-color: #ffb7ce;
+            overflow: hidden;
+            font-family: CR;
+            cursor: url('../Images/Nika\'s-cursor.svg') 16 16, auto;
+            margin: 0;
+            display: grid;
+            max-width: 100vw;
+            max-height: 100vh;
+            grid-template-columns: repeat(5, 20%);
+            grid-template-rows: repeat(5, 20%);
+        }
+
+        #splash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        #splash-content {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: sans-serif;
+        }
+
+        #splash-content img {
+            width: 50vh;
+            height: 50vh;
+            border-radius: 15px;
+            transition: transform 3s ease-in-out;
+        }
+
+        .scale-up {
+            transform: scale(1.112);
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 15px;
+            background-color: black;
+            color: white;
+        }
+
+        #yes-btn {
+            font-family: CR;
+            cursor: url('../Images/Nika\'s-cursor.svg') 16 16, auto;
+        }
+
+        #no-btn {
+            font-family: sans-serif;
+            cursor: url('../Images/James-cursor.svg') 16 16, auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            grid-area: 1/2/2/3;
+            align-self: end;
+            margin-bottom: 0;
+            color: white;
+        }
+
+        .table {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 14vh;
+            background: linear-gradient(to bottom, #5d4037, #3e2723);
+            box-shadow: inset 0 20px 20px rgba(0, 0, 0, 0.5), 0 -10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            border-top: 4px solid #795548;
+        }
+
+        .main-content {
+            z-index: 3;
+            margin-top: 5vh;
+            padding-bottom: 15vh;
+            grid-area: 2/2/5/5;
+        }
+
+        .main-content img {
+            width: 49.5vw;
+            height: 31.5vw;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.8));
+        }
+
+        .snorlax {
+            grid-area: 1/4/3/5;
+            justify-self: baseline;
+            align-self: center;
+            margin: 0;
+            width: 5vw;
+            height: 5vw;
+            z-index: 3;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .nyan-cat {
+            position: fixed;
+            margin-top: 0;
+            width: 100px;
+            z-index: 5;
+            pointer-events: none;
+            display: none;
+        }
+
+        @keyframes nyanCycle {
+            0% {
+                left: -200px;
+            }
+
+            100% {
+                left: 100vw;
+                margin-left: 200px;
+            }
+        }
+
+        .cookie-container {
+            position: fixed;
+            bottom: 10vh;
+            left: 2rem;
+            z-index: 3;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cookie-container:hover {
+            cursor: url("../Images/James-cursor.svg") 16 16, auto;
+        }
+
+        .cookie {
+            height: 9rem;
+            width: 11rem;
+        }
+
+        .claim-text {
+            font-family: CR;
+            color: white;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .cake-car {
+            z-index: 3;
+            height: 20rem;
+            width: 15rem;
+            grid-area: 3/5/6/6;
+            align-self: center;
+            justify-self: baseline;
+            border: solid white 5px;
+        }
+
+        #claim-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        #claim-content {
+            background: none;
+            padding: 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        #prize-img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 10px;
+            display: block;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #close-claim {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-family: sans-serif;
+            line-height: 1;
+            transition: opacity 0.3s;
+        }
+
+        #close-claim:hover {
+            opacity: 0.7;
+            cursor: url("../Images/James-cursor.svg") 16 16, auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="table"></div>
+    <audio id="splash-audio" loop>
+        <source src="../Audios/Larry_Intro.mpeg" type="audio/mpeg">
+    </audio>
+
+    <div id="splash-overlay">
+        <div id="splash-content">
+            <img src="../Images/Larry.jpeg" id="splash-img">
+            <h2 id="splash-text">Let's just say... <br> Is this Sirs Olivar?</h2>
+            <div class="button-group">
+                <button id="yes-btn">YES</button>
+                <button id="no-btn">nos</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cookie-container" id="cookie-trigger">
+        <img class="cookie" src="../Images/Cookie.png">
+        <p class="claim-text">claim your cookie</p>
+    </div>
+
+    <div id="claim-overlay" style="display: none;">
+        <div id="claim-content">
+            <button id="close-claim">×</button>
+            <img src="../Images/Nika's-sticker.jpeg" id="prize-img">
+        </div>
+    </div>
+
+    <img class="cake-car" src="../Images/happy-birthday-cat.gif">
+    <h1>To:</h1>
+    <div class="main-content">
+        <img src="../Images/Nika's-wishcard.jpeg">
+    </div>
+    <video src="../Videos/snorlax.mp4" autoplay loop muted playsinline class="snorlax"></video>
+    <video src="../Videos/rainbow cat remix.webm" autoplay loop muted playsinline class="nyan-cat"></video>
+
+    <script>
+        const splash = document.getElementById('splash-overlay');
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const splashAudio = document.getElementById('splash-audio');
+        const splashImg = document.getElementById('splash-img');
+        const splashText = document.getElementById('splash-text');
+
+        let hasClickedYesOnce = false;
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('play') === 'true') {
+            splashAudio.volume = 1.0;
+            splashAudio.play().catch(() => console.log("Audio waiting for click..."));
+        }
+
+        if (yesBtn) {
+            yesBtn.addEventListener('click', () => {
+                if (!hasClickedYesOnce) {
+                    splashText.innerHTML = "Are you absolutely sure?";
+                    splashImg.classList.add('scale-up');
+                    hasClickedYesOnce = true;
+                } else {
+                    splashAudio.pause();
+                    splash.style.display = 'none';
+
+                    const nyan = document.querySelector('.nyan-cat');
+                    if (nyan) {
+                        nyan.style.display = 'block';
+                        nyan.style.animation = 'nyanCycle 24s linear infinite';
+                    }
+                }
+            });
+        }
+
+        if (noBtn) {
+            noBtn.addEventListener('click', () => {
+                splashAudio.pause();
+                if (window.opener && !window.opener.closed) {
+                    window.opener.location.href = '../index.html';
+                    window.opener.focus();
+                }
+                window.close();
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 300);
+            });
+        }
+
+        const cookieBtn = document.getElementById('cookie-trigger');
+        const claimOverlay = document.getElementById('claim-overlay');
+        const closeClaim = document.getElementById('close-claim');
+
+        cookieBtn.addEventListener('click', () => {
+            claimOverlay.style.display = 'flex';
+        });
+
+        closeClaim.addEventListener('click', () => {
+            claimOverlay.style.display = 'none';
+        });
+
+        claimOverlay.addEventListener('click', (e) => {
+            if (e.target === claimOverlay) {
+                claimOverlay.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
