@@ -41,46 +41,44 @@
         place-self: center;
     }
 
-
-
-    .chigger-1,
-    .chigger-2,
-    .chigger-3,
-    .chigger-4,
-    .chigger-5,
-    .chigger-6,
-    .chigger-7,
-    .chigger-8,
-    .chigger-9,
-    .chigger-10,
-    .chigger-11,
-    .chigger-12,
-    .chigger-13,
-    .chigger-14,
-    .chigger-15 {
+    .olive-1,
+    .olive-2,
+    .olive-3,
+    .olive-4,
+    .olive-5,
+    .olive-6,
+    .olive-7,
+    .olive-8,
+    .olive-9,
+    .olive-10,
+    .olive-11,
+    .olive-12,
+    .olive-13,
+    .olive-14,
+    .olive-15 {
         transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .chigger-1:hover,
-    .chigger-2:hover,
-    .chigger-3:hover,
-    .chigger-4:hover,
-    .chigger-5:hover,
-    .chigger-6:hover,
-    .chigger-7:hover,
-    .chigger-8:hover,
-    .chigger-9:hover,
-    .chigger-10:hover,
-    .chigger-11:hover,
-    .chigger-12:hover,
-    .chigger-13:hover,
-    .chigger-14:hover,
-    .chigger-15:hover {
+    .olive-1:hover,
+    .olive-2:hover,
+    .olive-3:hover,
+    .olive-4:hover,
+    .olive-5:hover,
+    .olive-6:hover,
+    .olive-7:hover,
+    .olive-8:hover,
+    .olive-9:hover,
+    .olive-10:hover,
+    .olive-11:hover,
+    .olive-12:hover,
+    .olive-13:hover,
+    .olive-14:hover,
+    .olive-15:hover {
         transform: translateY(-10px);
         box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.15);
     }
 
-    .chigger-1 {
+    .olive-1 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -92,7 +90,7 @@
         height: 100%;
     }
 
-    .chigger-1 a {
+    .olive-1 a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -103,11 +101,11 @@
         color: inherit;
     }
 
-    .chigger-1 p {
+    .olive-1 p {
         margin: 0;
     }
 
-    .chigger-2 {
+    .olive-2 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -119,7 +117,7 @@
         height: 100%;
     }
 
-    .chigger-2 a {
+    .olive-2 a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -130,11 +128,11 @@
         color: inherit;
     }
 
-    .chigger-2 p {
+    .olive-2 p {
         margin: 0;
     }
 
-    .chigger-3 {
+    .olive-3 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -146,7 +144,7 @@
         height: 100%;
     }
 
-    .chigger-3 a {
+    .olive-3 a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -157,11 +155,11 @@
         color: inherit;
     }
 
-    .chigger-3 p {
+    .olive-3 p {
         margin: 0;
     }
 
-    .chigger-4 {
+    .olive-4 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -173,7 +171,7 @@
         height: 100%;
     }
 
-    .chigger-4 a {
+    .olive-4 a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -184,48 +182,45 @@
         color: inherit;
     }
 
-    .chigger-4 p {
+    .olive-4 p {
         margin: 0;
     }
 
+    .olive-5 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        text-align: center;
+        background-color: #c5e1a5;
+        color: black;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        overflow: hidden;
+    }
 
-   .chigger-5 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    text-align: center;
-    background-color: #c5e1a5;
-    color: black;
-    width: 100%;
-    height: 100%;
-    padding: 0; /* Ensures the button can fill the space entirely */
-    overflow: hidden;
-}
+    .olive-5 button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        cursor: url("./Images/226517703_776fccdd-8d12-4178-a849-632c1ee4535e.svg") 16 16, auto;
+        text-decoration: none;
+        color: inherit;
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-size: inherit;
+        padding: 0;
+    }
 
-.chigger-5 button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    cursor: url("./Images/226517703_776fccdd-8d12-4178-a849-632c1ee4535e.svg") 16 16, auto;
-    text-decoration: none;
-    color: inherit;
-    
-    /* Reset default button styles to match your original link look */
-    background: none;
-    border: none;
-    font-family: inherit; /* Keeps your "SC" or default font */
-    font-size: inherit;   /* Matches the 2rem from parent */
-    padding: 0;
-}
-
-    .chigger-5 p {
+    .olive-5 p {
         margin: 0;
     }
 
-    .chigger-6 {
+    .olive-6 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -237,7 +232,7 @@
         height: 100%;
     }
 
-    .chigger-6 a {
+    .olive-6 a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -248,11 +243,11 @@
         color: inherit;
     }
 
-    .chigger-6 p {
+    .olive-6 p {
         margin: 0;
     }
 
-    .chigger-7 {
+    .olive-7 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -264,7 +259,7 @@
         height: 100%;
     }
 
-    .chigger-8 {
+    .olive-8 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -276,7 +271,7 @@
         height: 100%;
     }
 
-    .chigger-9 {
+    .olive-9 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -288,7 +283,7 @@
         height: 100%;
     }
 
-    .chigger-10 {
+    .olive-10 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -300,7 +295,7 @@
         height: 100%;
     }
 
-    .chigger-11 {
+    .olive-11 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -312,7 +307,7 @@
         height: 100%;
     }
 
-    .chigger-12 {
+    .olive-12 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -324,7 +319,7 @@
         height: 100%;
     }
 
-    .chigger-13 {
+    .olive-13 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -336,7 +331,7 @@
         height: 100%;
     }
 
-    .chigger-14 {
+    .olive-14 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -348,7 +343,7 @@
         height: 100%;
     }
 
-    .chigger-15 {
+    .olive-15 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -359,6 +354,4 @@
         width: 100%;
         height: 100%;
     }
-
-
 }
