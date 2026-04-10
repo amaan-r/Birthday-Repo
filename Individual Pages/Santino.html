@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL_ERROR</title>
+    <style>
+        @font-face {
+            font-family:BVZ ;
+            src: url("../Fonts/Blood\ Victim\ Zombie.ttf");
+        }
+        body {
+            background-color: #000000;
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: BVZ;
+            display: grid;
+            grid-template-rows: 40% 40% 20%;
+        }
+
+        .static-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Static_Noise.gif');
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 10;
+            transition: opacity 0.3s ease;
+        }
+
+        #creepy-img {
+            max-width: 45vh;
+            border: 1px solid #222;
+            filter: grayscale(1) contrast(1.5) brightness(0.8);
+            box-shadow: 0 0 40px rgba(139, 0, 0, 0.2);
+            animation: glitch-color 3s infinite;
+        }
+
+
+        @keyframes glitch-color {
+            0%, 90%, 100% { filter: grayscale(1) contrast(1.5); }
+            92% { filter: grayscale(0) sepia(1) hue-rotate(-50deg) contrast(2); }
+            95% { filter: grayscale(1) brightness(2); }
+        }
+
+        .enter-btn {
+            margin-top: 40px;
+            background: none;
+            border: 1px solid #444;
+            color: #444;
+            padding: 15px 40px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            letter-spacing: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 20;
+        }
+
+        .enter-btn:hover {
+            color: #ff0000;
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+            text-shadow: 0 0 8px #ff0000;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 0, 0, 0.1);
+            position: absolute;
+            top: 0;
+            animation: scan 4s linear infinite;
+            z-index: 5;
+        }
+        .main-img {
+            grid-row:2/3 ;
+            height: 90%;
+            width: 30%;
+            align-self: center;
+            justify-self: center;
+        }
+        p {
+            grid-row: 3/4;
+            justify-self: center;
+            align-self: baseline;
+            font-size: 2rem;
+        }
+
+        @keyframes scan {
+            from { top: 0%; }
+            to { top: 100%; }
+        }
+
+        h1 {
+            z-index: 1;
+            font-size: 6rem;
+           
+            grid-row:1/2;
+
+        }
+
+        #splash-overlay {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+        }
+    </style>
+</head>
+<body>
+    <div class="static-overlay"></div>
+    <div class="scanline"></div>
+    <h1>Happy Birthday Sir Olivar!</h1>
+    <img class="main-img" src="../Images/Ino's_img-_1.png">
+    <p>I am inside your walls</p>
+    <div id="splash-overlay">
+        <img src="../Images/Ino's_img-_2.png" id="creepy-img">
+        <button class="enter-btn" id="gate-button">ENTER AT YOUR OWN RISK!</button>
+    </div>
+
+    <script>
+        const gateButton = document.getElementById('gate-button');
+
+        gateButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('splash-overlay').style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
